@@ -1,0 +1,53 @@
+package Prac;
+
+public class MissingConsecutiveNumber {
+
+	public static int findMissingElement(int [] arr1) {
+		int arrSize = arr1.length;
+		System.out.println("---------->"+arrSize);
+		//suppose arr length =21
+		
+		int mid = 0;
+		int initial=0,end=arrSize-1;
+		while(end>initial) {
+			mid = (initial+(end-1))/2;
+			System.out.println("Mid-------->"+mid);
+			if(arr1[mid]==mid) {
+				//it means left array is arranged properly
+				if(arr1[mid+1]-arr1[mid]>1) {
+					//check diff between mid and mid+1 element
+					return arr1[mid]+1;  //or arr1[mid]+1
+				}
+				else {
+					//assigining atart point as mid+1
+					initial = mid+1;
+				}
+				
+			}else {
+				//it means left array not arrange properly
+				if(arr1[mid]-arr1[mid-1]>1) {
+					//check diff between mid and mid-1 element
+					return arr1[mid-1];
+				}else {
+					end = mid-1;
+				}
+			}
+			
+		}
+		return -1;
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       int arr[] = {0,1,3,4,5,6,7,9,10} ;
+		System.out.println(findMissingElement(arr));
+		
+		int arr2[] = {0,1,2,3,4,5,6,7,9,10} ;
+		System.out.println(findMissingElement(arr2));
+		
+		int arr3[] = {0,1,2,3,4,5,6,7,8,9,10} ;
+		System.out.println(findMissingElement(arr3));
+		
+	}
+}
