@@ -1,0 +1,33 @@
+package Practice;
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class DeleteCharToMakeItAnagrams {
+	public static void main(String[] args) {
+		String str1="abccaa";
+		String str2 = "ccabacc";
+		int freq [] =new int[26];
+		 for (int i = 0; i < str1.length(); i++) {
+	         int position = str1.charAt(i) -'a';
+	         freq[position]++;
+	     }
+		 for (int i = 0; i < str2.length(); i++) {
+	         int position = str2.charAt(i) -'a';
+	         freq[position]--;
+	     }
+		 
+		 for(int i=0;i<26;i++) {
+			 System.out.println(freq[i]);
+			 
+		 }
+	}
+	 
+}
+

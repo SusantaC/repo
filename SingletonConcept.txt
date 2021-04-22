@@ -1,0 +1,36 @@
+package Practice;
+
+public class SingletonConcept {
+	
+	//we need a private constructor so that no one can call constructor out side from the class
+	/** we need a static method which will create the object and we can call it by using the class name and 
+	 * that should be public so that we can call the method using class name
+	 */
+	private static SingletonConcept instance = null;
+	private SingletonConcept() {
+		
+	}
+	
+	public static SingletonConcept getInstance() {
+		if (instance==null) {
+			instance = new SingletonConcept();
+			return instance;
+		}else {
+			return instance;
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SingletonConcept x = SingletonConcept.getInstance();
+		SingletonConcept y = SingletonConcept.getInstance();
+		System.out.println(x.hashCode());
+		System.out.println(y.hashCode());
+		if(x==y) {
+			System.out.println("Same Object");
+		}
+	}
+
+}

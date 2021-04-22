@@ -1,0 +1,28 @@
+package Practice;
+
+public class MinimumSwap {
+	
+	static int minimumSwaps(int[] a) {
+        int swap=0;
+        for(int i=0;i<a.length-1;i++){
+            if(i+1!=a[i]){
+                int t=i;
+                while(a[t]!=i+1){
+                    t++;  
+                }
+                int temp=a[t];
+                a[t]=a[i];
+                a[i]=temp;
+                swap++;
+            }
+        }
+        return swap;
+
+    }
+	
+	public static void main(String[] args) {
+		int a [] = {1,2,3,7,4,5};
+		System.out.println("minimumSwap:"+minimumSwaps(a));
+	}
+
+}
