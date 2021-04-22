@@ -1,0 +1,28 @@
+package Practice;
+
+public class RemoveDuplicateNumberFromArray {
+    public static void removeDuplicateNumber(int a[]) {
+    	//size of that array
+    	int n = a.length;
+    	int j=0;
+    	for(int i = 0;i<n;i++) {
+    		if (i<n-1 && a[i]==a[i+1]) {
+    			continue;
+    		}
+    		a[j]=a[i];
+    		j++;
+    	}
+
+    	for (int i=0;i<j;i++) {
+    		System.out.println(a[i]);
+    	}
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int [] a= {1,1,1,2,2,2,3,3,3,4,5};
+		
+		RemoveDuplicateNumberFromArray.removeDuplicateNumber(a);
+
+	}
+
+}
