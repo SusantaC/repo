@@ -1,0 +1,59 @@
+====================Dynamic Stack with Linked List ==============
+
+===============Node===========
+
+package Practice;
+
+public class Node {
+	
+	int value;
+	Node next;
+	
+}
+
+==============================
+
+
+
+
+package Practice;
+
+public class StackWithDynamicArray {
+	
+	Node head;
+	
+	StackWithDynamicArray(){
+		head=null;
+	}
+	
+	//Push method
+	public void push(int element) {
+		Node extraNode = head;
+		head = new Node();
+		head.value = element;
+		head.next = extraNode;
+	}
+	
+	//Pop method
+	public int pop() {
+		if (head==null) {
+			System.out.println("The stack is empty");
+			return -1;
+		}else {
+			int value=head.value;
+			head=head.next;
+			return value;
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		StackWithDynamicArray dynamicStack = new StackWithDynamicArray();
+		System.out.println(dynamicStack.pop());
+		dynamicStack.push(20);
+		dynamicStack.push(30);
+		dynamicStack.push(30);
+		System.out.println(dynamicStack.pop());
+	}
+	
+}
